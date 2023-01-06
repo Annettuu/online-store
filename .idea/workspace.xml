@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7f0c024-6194-464a-b50c-0fa22ad115b3" name="Changes" comment="" />
+    <list default="true" id="e7f0c024-6194-464a-b50c-0fa22ad115b3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/online-store/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/online-store/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/online-store/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/online-store/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/online-store/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/online-store/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/online-store/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/online-store/src/pages/Home.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +48,7 @@
       <updated>1673021217196</updated>
       <workItem from="1673021221098" duration="49000" />
       <workItem from="1673021284889" duration="6000" />
+      <workItem from="1673036430526" duration="690000" />
     </task>
     <servers />
   </component>
@@ -53,7 +60,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev-frontend" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

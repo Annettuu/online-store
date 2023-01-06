@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-   работает!
    <HelloWorld/>
   </div>
 
@@ -16,3 +15,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@import  'bootstrap/dist/css/bootstrap.css';
+@import  'bootstrap-vue/dist/bootstrap-vue.css';
+
+
+</style>
