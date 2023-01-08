@@ -25,7 +25,7 @@ export default {
 <style lang="scss">
 @import  'bootstrap/dist/css/bootstrap.css';
 @import  'bootstrap-vue/dist/bootstrap-vue.css';
-@import  '/scss/custom.css';
+@import  '@/assets/styles/scss/custom.css';
 
 .home {
   background: #173f35;
