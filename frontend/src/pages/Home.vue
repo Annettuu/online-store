@@ -26,9 +26,10 @@ export default {
 @import  'bootstrap/dist/css/bootstrap.css';
 @import  'bootstrap-vue/dist/bootstrap-vue.css';
 @import  '@/assets/styles/scss/custom.css';
+@import  '@/assets/styles/scss/main-color.scss';
 
 .home {
-  background: #173f35;
+  background: $green;
   display: flex;
   width: 100%;
   height: 100%;
