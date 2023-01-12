@@ -1,5 +1,5 @@
 <template>
- <div class="hello">
+ <div class="header">
    <nav class="navbar">
      <a class="navbar-brand" href="#">Логотип магазина</a>
    </nav>
@@ -9,14 +9,11 @@
 <script>
 export default {
   name: 'Header',
-  props: {
-    msg: String
-  }
 }
 </script>
 
 <style scoped lang="scss">
-.hello {
+.header {
   width: 100%;
 }
 </style>

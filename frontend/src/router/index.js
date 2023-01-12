@@ -1,14 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../pages/Home.vue'
+import admin from '../pages/admin.vue'
+import purchaseProcessing from '../pages/purchaseProcessing.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: admin
+  },
+  {
+    path: '/purchaseProcessing',
+    name: 'purchaseProcessing',
+    component: purchaseProcessing
   },
 ]
 

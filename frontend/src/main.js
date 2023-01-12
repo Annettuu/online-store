@@ -7,6 +7,10 @@ import Swiper, { Navigation, Virtual} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import VueRouter from 'vue-router'
+import  'bootstrap/dist/css/bootstrap.css';
+import  'bootstrap-vue/dist/bootstrap-vue.css';
+import  '@/assets/styles/scss/custom.css';
+import  '@/assets/styles/scss/main-color.scss';
 
 Vue.use(VueRouter)
 
