@@ -1,173 +1,57 @@
 <template>
-<div class="productList">
-  <h2>Категория товара</h2>
-  <b-carousel class="carousel slide" data-ride="carousel" controls>
-    <div class="carousel-item active">
-      <b-card-group class="groupProducts">
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-      </b-card-group>
+<div>
+  <swiper :navigation="true" :slides-per-view="5" :space-between="25" :modules="modules" class="mySwiper">
+    <div class="swiper-wrapper">
+      <swiper-slide v-for="images in contentSwiper" :key="images">
+        <img :src="`/images/${images}`" alt="">
+      </swiper-slide>
     </div>
-    <div class="carousel-item">
-      <b-card-group class="groupProducts">
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-      </b-card-group>
-    </div>
-  </b-carousel>
-  <h2>Другая категория товара</h2>
-  <b-carousel class="carousel slide" data-ride="carousel" controls>
-    <div class="carousel-item active">
-      <b-card-group class="groupProducts">
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-      </b-card-group>
-    </div>
-    <div class="carousel-item">
-      <b-card-group class="groupProducts">
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-        <b-card>
-          <img class="productFhoto" src="/images/img_2.png">
-          <b-card-text>
-          </b-card-text>
-        </b-card>
-      </b-card-group>
-    </div>
-  </b-carousel>
+  </swiper>
 </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import { Navigation } from "swiper";
+
+
 export default {
   name: "productList",
-}
+  components: {
+    Swiper,
+    SwiperSlide,
+    Navigation,
+  },
+  setup() {
+    const contentSwiper = [
+      'logo.png',
+      'logo.png',
+      'img.png',
+      'img.png',
+      'logo.png',
+      'logo.png',
+      'img.png',
+      'img.png',
+      ];
+    return {
+      modules: [Navigation], contentSwiper
+    };
+  },
+};
 </script>
 
-<style scoped>
-.productList {
-  width: 100%;
-  padding: 40px 200px;
-}
-.carousel {
+<style lang="scss">
+.swiper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-}
-.productFhoto {
-  width: 200px;
-  height: 250px;
-}
-h2 {
-  color: #887874;
-  margin-bottom: 35px;
+  width: 1000px;
+  height: 300px;
+  overflow: hidden;
+
+  & img {
+    width: 200px;
+    height: 300px;
+  }
 }
 </style>
