@@ -6,7 +6,9 @@ import store from './store'
 import Swiper, { Navigation, Virtual} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import VueRouter from 'vue-router'
 
+Vue.use(VueRouter)
 
 
 
