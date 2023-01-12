@@ -27,20 +27,8 @@ h2 {
 }
 
 .btn-secondary {
-  --bs-btn-color: $white;
-  --bs-btn-bg: transparent;
-  --bs-btn-border-color: transparent;
-  --bs-btn-hover-color: $grey;
-  --bs-btn-hover-bg: transparent;
-  --bs-btn-hover-border-color: transparent;
-  --bs-btn-focus-shadow-rgb: 130, 138, 145;
-  --bs-btn-active-color:$grey;
-  --bs-btn-active-bg: transparent;
-  --bs-btn-active-border-color: transparent;
-  --bs-btn-active-shadow: $grey;
-  --bs-btn-disabled-color: $grey;
-  --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
 }
 
 /*# sourceMappingURL=custom.css.map */
