@@ -7,7 +7,7 @@ import Swiper, { Navigation, Virtual} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-
+Vue.use(VueRouter)
 
 
 const swiper = new Swiper('.swiper', {
