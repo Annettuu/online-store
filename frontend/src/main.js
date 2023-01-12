@@ -5,7 +5,6 @@ import router from './router'
 import store from './store'
 import Swiper, { Navigation, Virtual} from 'swiper';
 import 'swiper/css';
-import '@/assets/styles/scss/swiper.css';
 import 'swiper/css/navigation';
 
 

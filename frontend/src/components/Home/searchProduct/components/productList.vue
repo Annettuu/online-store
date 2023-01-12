@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="productList">
   <swiper :navigation="true" :slides-per-view="5" :space-between="25" :modules="modules" class="mySwiper">
     <div class="swiper-wrapper">
       <swiper-slide v-for="images in contentSwiper" :key="images">
@@ -28,12 +28,12 @@ export default {
     const contentSwiper = [
       'logo.png',
       'logo.png',
-      'img.png',
-      'img.png',
       'logo.png',
       'logo.png',
-      'img.png',
-      'img.png',
+      'logo.png',
+      'logo.png',
+      'logo.png',
+      'logo.png',
       ];
     return {
       modules: [Navigation], contentSwiper
@@ -43,14 +43,17 @@ export default {
 </script>
 
 <style lang="scss">
+.productList {
+  padding: 40px 0;
+}
 .swiper {
   display: flex;
-  width: 1000px;
+  width: 1300px;
   height: 300px;
   overflow: hidden;
 
   & img {
-    width: 200px;
+    width: 250px;
     height: 300px;
   }
 }
