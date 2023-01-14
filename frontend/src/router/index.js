@@ -3,12 +3,13 @@ import VueRouter from 'vue-router'
 import Home from '../pages/Home.vue'
 import admin from '../pages/admin.vue'
 import purchaseProcessing from '../pages/purchaseProcessing.vue'
+import CardProduct from '../components/CardProduct.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: Home
   },
@@ -21,6 +22,11 @@ const routes = [
     path: '/purchaseProcessing',
     name: 'purchaseProcessing',
     component: purchaseProcessing
+  },
+  {
+    path: '/CardProduct',
+    name: 'CardProduct',
+    component: CardProduct
   },
 ]
 
