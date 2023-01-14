@@ -24,5 +24,15 @@ h2 {
 .btn-secondary {
   border: 1px solid $white;
   border-radius: 30px;
-
+}
+.card-text {
+  color: $black;
+}
+.card {
+  background: transparent;
+  border: transparent;
+}
+.card-body {
+  width: 100%;
+  background: $white;
 }

@@ -3,7 +3,7 @@
   <swiper :navigation="true" :slides-per-view="5" :space-between="25" :modules="modules" class="mySwiper">
     <div class="swiper-wrapper">
       <swiper-slide v-for="images in contentSwiper" :key="images">
-        <img :src="`/images/${images}`" alt="">
+        <img :src="`${images}`" alt="">
       </swiper-slide>
     </div>
   </swiper>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import cardProduct from "@/components/CardProduct";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -23,17 +24,11 @@ export default {
     Swiper,
     SwiperSlide,
     Navigation,
+    cardProduct,
   },
   setup() {
     const contentSwiper = [
-      'logo.png',
-      'logo.png',
-      'logo.png',
-      'logo.png',
-      'logo.png',
-      'logo.png',
-      'logo.png',
-      'logo.png',
+      'img_2.png',
       ];
     return {
       modules: [Navigation], contentSwiper
