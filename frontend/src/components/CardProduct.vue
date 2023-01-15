@@ -4,8 +4,8 @@
     <figure class="effect-text-three">
       <img :src="itemImage"/>
       <figcaption>
-        <h3>{{descriptionProduct.price}}</h3>
-        <p>{{descriptionProduct.name}}</p>
+        <h3>{{price}}</h3>
+        <p>{{name}}</p>
       </figcaption>
     </figure>
   </div>
@@ -15,23 +15,10 @@
 <script>
 export default {
   name: "CardProduct",
-  //props: {
-  //  descriptionProduct: {
-  //    type: Object
-  //  }
-  //},
-  data() {
-    return {
-      descriptionProduct: {
-        price: "500$",
-        name: "Пиджак",
-        img: "logo.png",
-      }
-    }
-  },
+  props: ["name", "price", "img"],
   computed: {
     itemImage() {
-      return require(`@/assets/images/${this.descriptionProduct.img}`);
+      return require(`@/assets/images/${this.img}`);
     }
   }
 }
