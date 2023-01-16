@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../pages/Home.vue'
+import Home from '../pages/Home/Home.vue'
 import admin from '../pages/admin.vue'
 import purchaseProcessing from '../pages/purchaseProcessing.vue'
 import CardProduct from '../components/CardProduct.vue'

@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Header from '@/components/Home/Header.vue'
-import searchProduct from '@/components/Home/searchProduct/index.vue'
-import basket from "@/components/Home/basket";
+import Header from '@/pages/Home/components/Header.vue'
+import searchProduct from '@/pages/Home/components/searchProduct/seachProduct.vue'
+import basket from "@/pages/Home/components/basket";
 
 
 export default {
@@ -27,8 +27,8 @@ export default {
 <style lang="scss">
 @import  'bootstrap/dist/css/bootstrap.css';
 @import  'bootstrap-vue/dist/bootstrap-vue.css';
-@import  '@/assets/styles/scss/custom.css';
-@import  '@/assets/styles/scss/main-color.scss';
+@import '@/assets/styles/scss/custom.css';
+@import '@/assets/styles/scss/main-color.scss';
 
 .home {
   background: $green;

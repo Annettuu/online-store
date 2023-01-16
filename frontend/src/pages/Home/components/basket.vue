@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import  '@/assets/styles/scss/main-color.scss';
+@import '@/assets/styles/scss/main-color.scss';
 
 .basket {
   display: flex;

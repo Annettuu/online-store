@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import productList from "@/components/Home/searchProduct/components/productList";
-import searchBar from "@/components/Home/searchProduct/components/searchBar";
+import productList from "@/pages/Home/components/searchProduct/components/productList";
+import searchBar from "@/pages/Home/components/searchProduct/components/searchBar";
 
 export default {
   name: "searchProduct",
