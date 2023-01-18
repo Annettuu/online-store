@@ -2,8 +2,6 @@
   <div class="home">
     <Header/>
     <search-product/>
-    <basket/>
-    <search-product/>
   </div>
 
 </template>

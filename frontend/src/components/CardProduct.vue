@@ -28,6 +28,8 @@ export default {
 .CardProduct {
   display: flex;
   justify-content: center;
+  width: 300px;
+  height: 300px;
 }
 img {
   width: 250px;
