@@ -11,18 +11,32 @@
       v-for="product of CardProduct"
       :key="product.id"
     >
-      <card-product
-        :name="product.name"
-        :price="product.price"
-        :img="product.img"
-        draggable="true"
-        @dragstart="drag"
-      />
+      <div class="" draggable="true" @dragstart="onDragging($event, product)" :id="product" >
+        <card-product
+          :name="product.name"
+          :price="product.price"
+          :img="product.img"
+          :id="product.id"
+        />
+      </div>
     </swiper-slide>
   </swiper>
   <i @click="scroll('prev')" id="right" class="button-next">></i>
-  <div class="basket container justify-content-center" id="box-droppable" @drop="drop" @dragover="allowDrop">
-    переместите элемент
+  <div class="basket container justify-content-center"
+       id="box-droppable"
+       @drop="drop"
+       @dragover="allowDrop">
+    <div
+      class="card-product-basket"
+      v-for="productBasket of basket"
+      :key="productBasket.id">
+      <img :src="require(`@/assets/images/${productBasket.img}`)"/>
+    </div>
+  </div>
+  <div
+    v-for="productBasket of basket"
+    :key="productBasket.id"
+  >
   </div>
 </div>
 </template>
@@ -33,7 +47,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/scss";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import { ref } from 'vue'
+import basket from "@/pages/Home/components/basket";
 
 
 export default {
@@ -44,33 +58,39 @@ export default {
     cardProduct,
     Navigation
   },
+  data() {
+    return {
+      basket: [
+        {id:9, price: "да", name: "получилось", img: "logo.png",},
+      ]
+    }
+  },
   methods : {
-    allowDrop(ev) {
-     ev.preventDefault();
-    },
     scroll(direction) {
       if (direction === 'prev') {
         document.querySelector('.swiper').scrollTo({
-          left: 300,
+          left: 360,
           behavior: 'smooth'
         })
       } else {
         document.querySelector('.swiper').scrollTo({
-          left: -300,
+          left: -360,
           behavior: 'smooth'
         })
       }
     },
-    drag(ev) {
-      ev.dataTransfer.setData('text', ev.target.id)
-      console.log(ev.target.id)
+    onDragging(ev, item){
+      console.log(item)
+      ev.dataTransfer.setData("data", JSON.stringify(item));
+    },
+    allowDrop(ev) {
+      ev.preventDefault();
     },
     drop(ev) {
       ev.preventDefault();
-      let id = ev.dataTransfer.getData('text');
-      console.log(id);
-      ev.target.appendChild(document.getElementById(id));
-
+      let data = JSON.parse(ev.dataTransfer.getData("data"));
+      this.basket.push(data)
+      console.log(data)
     }
   },
   setup() {
@@ -81,7 +101,6 @@ export default {
       {id:4, price: "4", name: "4", img: "logo.png",},
       {id:5, price: "5", name: "5", img: "logo.png",},
     ]
-    const basket = []
     return {
       modules: [Navigation], CardProduct,
     };
