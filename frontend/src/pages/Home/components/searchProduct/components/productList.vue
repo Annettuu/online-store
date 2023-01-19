@@ -30,13 +30,14 @@
       class="card-product-basket"
       v-for="productBasket of basket"
       :key="productBasket.id">
-      <img :src="require(`@/assets/images/${productBasket.img}`)"/>
+      <img class="card-product-basket-img" :src="require(`@/assets/images/${productBasket.img}`)"/>
     </div>
   </div>
   <div
     v-for="productBasket of basket"
     :key="productBasket.id"
   >
+    {{productBasket.name}} - {{productBasket.price}}
   </div>
 </div>
 </template>
@@ -61,7 +62,7 @@ export default {
   data() {
     return {
       basket: [
-        {id:9, price: "да", name: "получилось", img: "logo.png",},
+        {id:9, price: "5500$", name: "Пиджак", img: "logo.png",},
       ]
     }
   },
@@ -124,6 +125,10 @@ export default {
     padding: 10px;
   }
 }
+.card-product-basket-img {
+  width: 150px;
+  height: 150px;
+}
 .productList {
   width: 70%;
 }
@@ -131,8 +136,8 @@ export default {
   display: flex;
   border: 2px solid $white;
   border-radius: 25px;
-  width: 800px;
-  height: 400px;
+  width: 80%;
+  height: 40%;
   padding: 180px 50px;
 }
  #draggable-container{
@@ -142,11 +147,14 @@ export default {
    border: 1px solid #aaaaaa;
  }
  #box-droppable {
-   width: 50%;
-   min-height: 300px;
-   height: 70px;
+   display: flex;
+   gap: 10px 10px;
+   width: 80%;
+   height: 332px;
+   overflow-y: scroll;
    padding: 10px;
    border: 1px solid #aaaaaa;
+   flex-wrap: wrap;
  }
 i {
   background: rgba(255, 255, 255, 0.6);
@@ -169,5 +177,20 @@ i {
 }
 #right {
   right:18%;
+}
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent $grey;
+}
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 2px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: $grey;
 }
 </style>
