@@ -1,6 +1,5 @@
 <template>
 <div class="productList">
-  <div @click="scroll('next')" class="button-prev" id="left"><</div>
   <swiper
     :slidesPerView="4"
     :modules="modules"
@@ -21,6 +20,7 @@
       </div>
     </swiper-slide>
   </swiper>
+  <div @click="scroll('next')" class="button-prev" id="left"><</div>
   <div @click="scroll('prev')" id="right" class="button-next">></div>
 </div>
 </template>
@@ -64,11 +64,11 @@ export default {
   },
   setup() {
     const CardProduct = [
-      {id:1, price: "5000$", name: "Товар", img: "logo.png",},
-      {id:2, price: "5000$", name: "Товар", img: "logo.png",},
-      {id:3, price: "5000$", name: "Товар", img: "logo.png",},
-      {id:4, price: "5000$", name: "Товар", img: "logo.png",},
-      {id:5, price: "5000$", name: "Товар", img: "logo.png",},
+      {id:1, price: 5000, name: "Товар", img: "logo.png",},
+      {id:2, price: 5000, name: "Товар", img: "logo.png",},
+      {id:3, price: 5000, name: "Товар", img: "logo.png",},
+      {id:4, price: 5000, name: "Товар", img: "logo.png",},
+      {id:5, price: 5000, name: "Товар", img: "logo.png",},
     ]
     return {
       modules: [Navigation], CardProduct,
@@ -94,7 +94,8 @@ export default {
   }
 }
 .productList {
-  width: 70%;
+  width: 90%;
+  position: relative;
 }
  #draggable-container{
    width: 50%;
@@ -114,15 +115,15 @@ export default {
   color: black;
   font-family: system-ui;
   font-size: 25px;
-  top: 30%;
+  top: 50%;
   font-weight: 400;
   z-index: 5;
   transform: translateY(-50%);
 }
 #left {
-  left:18.5%;
+  left:3%;
 }
 #right {
-  right:18%;
+  right:3%;
 }
 </style>

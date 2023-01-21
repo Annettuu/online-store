@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <search-product/>
+    <div class="listProduct">
+      <search-product/>
+      <search-product/>
+    </div>
     <basket/>
   </div>
 
@@ -31,10 +34,14 @@ export default {
 .home {
   background: $green;
   display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
-  flex-direction: column;
   align-items: center;
   padding: 20px;
+}
+.listProduct {
+  display: flex;
+  flex-direction: column;
 }
 </style>

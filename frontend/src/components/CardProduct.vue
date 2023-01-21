@@ -4,7 +4,7 @@
     <figure class="effect-text-three">
       <img :src="itemImage"/>
       <figcaption>
-        <h3>{{price}}</h3>
+        <h3>{{price}}$</h3>
         <p>{{name}}</p>
       </figcaption>
     </figure>

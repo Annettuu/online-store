@@ -1,9 +1,7 @@
 <template>
-  <div class="container searchBar">
+  <div class="searchBar">
     <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-      <b-button>Поиск</b-button>
-      <b-button v-b-modal.modal-lg @click="show=true">Фильтр</b-button>
+      <h5 v-b-modal.modal-lg @click="show=true">Выбрать категорию</h5>
     </form>
     <b-modal
       v-model="show"
@@ -39,26 +37,6 @@
                     <template #button-content>
                       Choose tags
                     </template>
-                    <b-dropdown-form @submit.stop.prevent="() => {}">
-                      <b-form-group
-                        label="Search tags"
-                        label-for="tag-search-input"
-                        label-cols-md="auto"
-                        class="mb-0"
-                        label-size="sm"
-                        :description="searchDesc"
-                        :disabled="disabled"
-                      >
-                        <b-form-input
-                          v-model="search"
-                          id="tag-search-input"
-                          type="search"
-                          size="sm"
-                          autocomplete="off"
-                        ></b-form-input>
-                      </b-form-group>
-                    </b-dropdown-form>
-                    <b-dropdown-divider></b-dropdown-divider>
                     <b-dropdown-item-button
                       v-for="option in availableOptions"
                       :key="option"
@@ -92,25 +70,6 @@
                     <template #button-content>
                       Выберите тег
                     </template>
-                    <b-dropdown-form @submit.stop.prevent="() => {}">
-                      <b-form-group
-                        label="Search tags"
-                        label-for="tag-search-input"
-                        label-cols-md="auto"
-                        class="mb-0"
-                        label-size="sm"
-                        :description="searchDesc"
-                        :disabled="disabled"
-                      >
-                        <b-form-input
-                          v-model="search"
-                          id="tag-search-input"
-                          type="search"
-                          size="sm"
-                          autocomplete="off"
-                        ></b-form-input>
-                      </b-form-group>
-                    </b-dropdown-form>
                     <b-dropdown-item-button
                       v-for="option in availableOptions"
                       :key="option"
@@ -125,21 +84,6 @@
                 </template>
               </b-form-tags>
             </b-form-group>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="5">Цена</b-col>
-          <b-col>
-            <div class="input-group mb-3">
-              <span class="input-group-text">min</span>
-              <span class="input-group-text">₽</span>
-              <input type="text" class="form-control" aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)">
-            </div>
-            <div class="input-group">
-              <input type="text" class="form-control" aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)">
-              <span class="input-group-text">max</span>
-              <span class="input-group-text">₽</span>
-            </div>
           </b-col>
         </b-row>
       </b-container>
@@ -196,7 +140,10 @@ export default {
 
 <style lang="scss">
 .searchBar {
+  display: flex;
+  width: 80%;
   margin-top: 50px;
+  margin-bottom: -30px;
 }
 .d-flex {
   gap: 5px;

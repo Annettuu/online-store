@@ -23,7 +23,7 @@
           v-for="productBasket of basket"
           :key="productBasket.id"
         >
-          <h6>{{productBasket.name}} - {{productBasket.price}}</h6>
+          <h6>{{productBasket.name}} - {{productBasket.price}}$</h6>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ export default {
   name: "basket",
   data() {
     return {
-      basket: []
+      basket: [],
     }
   },
   methods: {
@@ -51,12 +51,10 @@ export default {
     mouseover() {
       let changeDisp = document.querySelector('.basket-cardProduct-panelDescription')
       changeDisp.style.display = changeDisp.style.display = 'flex'
-      console.log("re")
     },
     mouseleave() {
       let change = document.querySelector('.basket-cardProduct-panelDescription')
       change.style.display = change.style.display = 'none'
-      console.log("re")
     },
   }
 }
@@ -94,7 +92,16 @@ h6 {
   justify-content: center;
   align-items: center;
   background: $white;
-  width: 80%;
+  width: 100%;
+}
+.basket-cardProduct-panelTotalPrice {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background: $white;
+  bottom: 0px;
+  right: 0px;
+  width: 10%;
 }
 .basket-cardProduct-img {
   width: 150px;
@@ -106,8 +113,8 @@ h6 {
   align-items: center;
   justify-content: center;
   gap: 10px 10px;
-  width: 80%;
-  height: 332px;
+  width: 100%;
+  height: 700px;
   overflow-y: scroll;
   padding: 10px;
   border: 1px solid #aaaaaa;
