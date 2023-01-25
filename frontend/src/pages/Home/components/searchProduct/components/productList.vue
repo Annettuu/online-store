@@ -3,7 +3,6 @@
   <swiper
     :slidesPerView="4"
     :modules="modules"
-    :horizontal="true"
     :allow-touch-move="false"
   >
     <swiper-slide
@@ -20,8 +19,8 @@
       </div>
     </swiper-slide>
   </swiper>
-  <div @click="scroll('next')" class="button-prev" id="left"><</div>
-  <div @click="scroll('prev')" id="right" class="button-next">></div>
+  <div @click="scroll('prev')" class="swiper-button-prev" id="left"></div>
+  <div @click="scroll('next')" id="right" class="swiper-button-next"></div>
 </div>
 </template>
 
@@ -45,16 +44,12 @@ export default {
   },
   methods : {
     scroll(direction) {
-      if (direction === 'prev') {
-        document.querySelector('.swiper').scrollTo({
-          left: 360,
-          behavior: 'smooth'
-        })
+      if (direction === 'next') {
+        const swiper = document.querySelector('.swiper');
+        swiper.slideNext()
       } else {
-        document.querySelector('.swiper').scrollTo({
-          left: -360,
-          behavior: 'smooth'
-        })
+        const swiper = document.querySelector('.swiper');
+        swiper.slidePrev()
       }
     },
     onDragging(ev, item){
@@ -104,21 +99,11 @@ export default {
    border: 1px solid #aaaaaa;
  }
 
-.button-next, .button-prev {
-  background: rgba(255, 255, 255, 0.6);
-  height: 45px;
-  width: 45px;
+.swiper-button-prev, .swiper-button-next {
   cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  text-align: center;
   color: black;
-  font-family: system-ui;
-  font-size: 25px;
-  top: 50%;
-  font-weight: 400;
   z-index: 5;
-  transform: translateY(-50%);
+
 }
 #left {
   left:3%;
