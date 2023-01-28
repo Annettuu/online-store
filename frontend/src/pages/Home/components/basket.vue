@@ -7,23 +7,23 @@
       @mouseleave="mouseleave"
     >
       <div
-        class="basket-cardProduct"
         v-for="productBasket of basket"
         :key="productBasket.id"
+        class="basket-cardProduct"
       >
         <img
           class="basket-cardProduct-img"
-          @mouseover="mouseover"
           :src="require(`@/assets/images/${productBasket.img}`)"
-        />
+          @mouseover="mouseover"
+        >
       </div>
       <div class="basket-cardProduct-panelDescription">
         <div
-          class="basket-cardProduct-description"
           v-for="productBasket of basket"
           :key="productBasket.id"
+          class="basket-cardProduct-description"
         >
-          <h6>{{productBasket.name}} - {{productBasket.price}}$</h6>
+          <h6>{{ productBasket.name }} - {{ productBasket.price }}$</h6>
         </div>
       </div>
     </div>
@@ -32,21 +32,21 @@
 
 <script>
 export default {
-  name: "basket",
+  name: 'basket',
   data() {
     return {
-      basket: [],
+      basket: []
     }
   },
   methods: {
     allowDrop(ev) {
-      ev.preventDefault();
+      ev.preventDefault()
     },
     drop(ev) {
-      ev.preventDefault();
-      let data = JSON.parse(ev.dataTransfer.getData("data"));
+      ev.preventDefault()
+      console.debug(ev.dataTransfer.getData('data'))
+      let data = JSON.parse(ev.dataTransfer.getData('data'))
       this.basket.push(data)
-      console.log(data)
     },
     mouseover() {
       let changeDisp = document.querySelector('.basket-cardProduct-panelDescription')
@@ -55,7 +55,7 @@ export default {
     mouseleave() {
       let change = document.querySelector('.basket-cardProduct-panelDescription')
       change.style.display = change.style.display = 'none'
-    },
+    }
   }
 }
 </script>

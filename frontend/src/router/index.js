@@ -27,7 +27,7 @@ const routes = [
     path: '/CardProduct',
     name: 'CardProduct',
     component: CardProduct
-  },
+  }
 ]
 
 const router = new VueRouter({

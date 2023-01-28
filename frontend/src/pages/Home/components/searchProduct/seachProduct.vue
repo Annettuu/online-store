@@ -1,21 +1,19 @@
 <template>
   <div class="searchProduct">
-    <search-bar/>
-    <product-list/>
+    <search-bar />
+    <product-list />
   </div>
-
-
 </template>
 
 <script>
-import productList from "@/pages/Home/components/searchProduct/components/productList";
-import searchBar from "@/pages/Home/components/searchProduct/components/searchBar";
+import productList from '@/pages/Home/components/searchProduct/components/productList'
+import searchBar from '@/pages/Home/components/searchProduct/components/searchBar'
 
 export default {
-  name: "searchProduct",
+  name: 'search-product',
   components: {
     productList,
-    searchBar,
+    searchBar
   }
 }
 </script>

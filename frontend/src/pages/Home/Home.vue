@@ -1,24 +1,23 @@
 <template>
   <div class="home">
     <div class="listProduct">
-      <search-product/>
-      <search-product/>
+      <search-product />
+      <search-product />
     </div>
-    <basket/>
+    <basket />
   </div>
-
 </template>
 
 <script>
-import Header from '@/pages/Home/components/Header.vue'
+import headerHome from '@/pages/Home/components/header-home'
 import searchProduct from '@/pages/Home/components/searchProduct/seachProduct.vue'
-import basket from "@/pages/Home/components/basket";
+import basket from '@/pages/Home/components/basket'
 
 
 export default {
-  name: 'HomeView',
+  name: 'home-view',
   components: {
-    Header,
+    headerHome,
     searchProduct,
     basket
   }
