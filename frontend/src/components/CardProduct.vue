@@ -2,7 +2,7 @@
   <div
     class="CardProduct"
     draggable="true"
-    @dragstart="$emit('drag')"
+    @dragstart="$emit('drag', $event)"
   >
     <div class="hover-text-one">
       <figure class="effect-text-three">
