@@ -2,22 +2,23 @@
   <div class="productList">
     <swiper
       class="mySwiper"
-      :slides-per-view="3"
+      :slides-per-view="4"
       :space-between="15"
-      :navigation="true"
       :modules="modules"
       :allow-touch-move="false"
       :direction="'horizontal'"
     >
-      <swiper-slide
-        v-for="product of cardProduct"
-        :key="product.id"
-      >
-        <card-product
-          :card-product="product"
-          @drag="onDragging($event, product)"
-        />
-      </swiper-slide>
+      <template v-slot:wrapper-end>
+        <swiper-slide
+          v-for="product of products"
+          :key="product.id"
+        >
+          <card-product
+            :card-product="product"
+            @drag="onDragging($event, product)"
+          />
+        </swiper-slide>
+      </template>
     </swiper>
     <div
       id="left"
@@ -33,11 +34,11 @@
 </template>
 
 <script>
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import cardProduct from '@/components/CardProduct'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/scss'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper'
 
 
 export default {
@@ -45,20 +46,23 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    cardProduct,
-    Navigation
+    cardProduct
   },
   setup() {
     function onDragging(ev, item){
-      console.debug(JSON.stringify(item))
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
-    const cardProduct = [
+    const products = [
       {id:1, price: 5000, name: 'Товар', img: 'logo.png'},
       {id:2, price: 5000, name: 'Товар', img: 'logo.png'},
       {id:3, price: 5000, name: 'Товар', img: 'logo.png'},
       {id:4, price: 5000, name: 'Товар', img: 'logo.png'},
-      {id:5, price: 5000, name: 'Товар', img: 'logo.png'}
+      {id:5, price: 5000, name: 'Товар', img: 'img_1.png'},
+      {id:6, price: 5000, name: 'Товар', img: 'logo.png'},
+      {id:7, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:8, price: 5000, name: 'Товар', img: 'logo.png'},
+      {id:9, price: 5000, name: 'Товар', img: 'img.png'},
+      {id:10, price: 5000, name: 'Товар', img: 'logo.png'}
     ]
     function scroll(direction) {
       const swiper = document.querySelector('.swiper').swiper
@@ -71,7 +75,7 @@ export default {
     }
 
     return {
-      modules: [Navigation], cardProduct,  Swiper, SwiperSlide, onDragging, scroll
+      modules: [Scrollbar, Navigation, Pagination, A11y], products,  Swiper, SwiperSlide, onDragging, scroll
     }
   }
 }
@@ -88,10 +92,10 @@ export default {
 }
 .swiper {
   width: 100%;
-  display: flex;
+  height: 100%;
 }
 .swiper-slide {
-  width: 25% !important;
+  width: 24% !important;
 
   & img {
     display: block;
@@ -107,11 +111,5 @@ export default {
   cursor: pointer;
   color: black;
   z-index: 5;
-}
-#left {
-  left:3%;
-}
-#right {
-  right:3%;
 }
 </style>

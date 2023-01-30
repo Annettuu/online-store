@@ -44,7 +44,6 @@ export default {
     },
     drop(ev) {
       ev.preventDefault()
-      console.debug(ev.dataTransfer.getData('data'))
       let data = JSON.parse(ev.dataTransfer.getData('data'))
       this.basket.push(data)
     },

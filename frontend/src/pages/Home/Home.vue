@@ -41,6 +41,7 @@ export default {
 }
 .listProduct {
   display: flex;
+  width: 75%;
   flex-direction: column;
 }
 </style>
