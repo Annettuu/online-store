@@ -1,24 +1,29 @@
 <template>
-<div class="CardProduct">
-  <div class="hover-text-one">
-    <figure class="effect-text-three">
-      <img :src="itemImage"/>
-      <figcaption>
-        <h3>{{price}}</h3>
-        <p>{{name}}</p>
-      </figcaption>
-    </figure>
+  <div
+    class="CardProduct"
+    draggable="true"
+    @dragstart="$emit('drag', $event)"
+  >
+    <div class="hover-text-one">
+      <figure class="effect-text-three">
+        <img :src="require(`@/assets/images/${cardProduct.img}`)">
+        <figcaption>
+          <h3>{{ cardProduct.price }}$</h3>
+          <p>{{ cardProduct.name }}</p>
+        </figcaption>
+      </figure>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 export default {
-  name: "CardProduct",
-  props: ["name", "price", "img"],
-  computed: {
-    itemImage() {
-      return require(`@/assets/images/${this.img}`);
+  name: 'card-product',
+  emits: ['drag'],
+  props: {
+    cardProduct: {
+      type: Object,
+      required: true
     }
   }
 }
@@ -28,10 +33,8 @@ export default {
 .CardProduct {
   display: flex;
   justify-content: center;
-}
-img {
   width: 250px;
-  height: 300px;
+  height: 250px;
 }
 .hover-text-one {
   overflow: hidden;
