@@ -1,16 +1,20 @@
 <template>
   <div class="home">
-    <div class="listProduct">
-      <search-product />
-      <search-product />
+    <header-home />
+    <div class="home_container">
+      <div class="home_container_listProduct">
+        <search-product />
+        <search-product2 />
+      </div>
+      <basket />
     </div>
-    <basket />
   </div>
 </template>
 
 <script>
 import headerHome from '@/pages/Home/components/header-home'
 import searchProduct from '@/pages/Home/components/searchProduct/seachProduct.vue'
+import searchProduct2 from '@/pages/Home/components/searchProduct2/seachProduct.vue'
 import basket from '@/pages/Home/components/basket'
 
 
@@ -19,6 +23,7 @@ export default {
   components: {
     headerHome,
     searchProduct,
+    searchProduct2,
     basket
   }
 }
@@ -33,15 +38,23 @@ export default {
 .home {
   background: $green;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   align-items: center;
   padding: 20px;
-}
-.listProduct {
-  display: flex;
-  width: 75%;
-  flex-direction: column;
+
+  &_container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    &_listProduct {
+      display: flex;
+      width: 75%;
+      flex-direction: column;
+    }
+
+  }
 }
 </style>

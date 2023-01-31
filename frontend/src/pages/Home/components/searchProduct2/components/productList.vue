@@ -1,7 +1,7 @@
 <template>
   <div class="productList">
     <swiper
-      class="mySwiper"
+      class="mySwiper2"
       :slides-per-view="4"
       :space-between="15"
       :modules="modules"
@@ -43,7 +43,7 @@ import 'swiper/css/navigation'
 
 
 export default {
-  name: 'product-list',
+  name: 'product-list-2',
   components: {
     Swiper,
     SwiperSlide,
@@ -66,7 +66,7 @@ export default {
       {id:10, price: 5000, name: 'Товар', img: 'logo.png'}
     ]
     function scroll(direction) {
-      const swiper = document.querySelector('.mySwiper').swiper
+      const swiper = document.querySelector('.mySwiper2').swiper
 
       if (direction === 'next') {
         swiper.slideNext()
