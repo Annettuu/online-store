@@ -5,7 +5,7 @@
       :slides-per-view="4"
       :space-between="15"
       :modules="modules"
-      :navigation="true"
+      :navigation="false"
       :allow-touch-move="false"
       :direction="'horizontal'"
     >
@@ -54,16 +54,16 @@ export default {
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
     const products = [
-      {id:1, price: 5000, name: 'Товар', img: 'logo.png'},
-      {id:2, price: 5000, name: 'Товар', img: 'logo.png'},
-      {id:3, price: 5000, name: 'Товар', img: 'logo.png'},
-      {id:4, price: 5000, name: 'Товар', img: 'logo.png'},
-      {id:5, price: 5000, name: 'Товар', img: 'img_1.png'},
-      {id:6, price: 5000, name: 'Товар', img: 'logo.png'},
+      {id:1, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:2, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:3, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:4, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:5, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:6, price: 5000, name: 'Товар', img: 'img_2.png'},
       {id:7, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:8, price: 5000, name: 'Товар', img: 'logo.png'},
-      {id:9, price: 5000, name: 'Товар', img: 'img.png'},
-      {id:10, price: 5000, name: 'Товар', img: 'logo.png'}
+      {id:8, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:9, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:10, price: 5000, name: 'Товар', img: 'img_2.png'}
     ]
     function scroll(direction) {
       const swiper = document.querySelector('.mySwiper').swiper
@@ -87,7 +87,7 @@ export default {
 @import '@/assets/styles/scss/main-color.scss';
 
 .productList {
-  padding: 40px 0;
+  padding: 40px 60px;
   width: 100%;
   height: 100%;
 }
@@ -96,7 +96,7 @@ export default {
   height: 100%;
 }
 .swiper-slide {
-  width: 24% !important;
+  display: flex;
 
   & img {
     display: block;
@@ -112,5 +112,14 @@ export default {
   cursor: pointer;
   color: black;
   z-index: 5;
+}
+
+.swiper-button-next:after {
+  position: absolute;
+  right: 35px;
+}
+.swiper-button-prev:after {
+  position: absolute;
+  right: 25px;
 }
 </style>
