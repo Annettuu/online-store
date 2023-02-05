@@ -53,18 +53,7 @@ export default {
     function onDragging(ev, item){
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
-    const products = [
-      {id:1, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:2, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:3, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:4, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:5, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:6, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:7, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:8, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:9, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:10, price: 5000, name: 'Товар', img: 'img_2.png'}
-    ]
+    const products = []
     function scroll(direction) {
       const swiper = document.querySelector('.mySwiper').swiper
 

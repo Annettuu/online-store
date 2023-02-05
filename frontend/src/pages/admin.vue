@@ -7,74 +7,93 @@
         <input
           type="text"
           required
+          v-model="prod.vName"
         >
       </div>
       <div class="admin_container_data">
         <h5>Идентификатор:</h5>
-        <h5>вставляется автоматически</h5>
+        <h5>{{prod.lastId}}</h5>
       </div>
       <div class="admin_container_data">
         <h5>Цена:</h5>
         <input
           type="number"
           required
+          v-model="prod.vPrice"
         >
         ₽
       </div>
       <div class="admin_container_data">
         <h5>Описание:</h5>
-        <input
-          type="text"
-          required
-        >
+        <textarea
+          name="description"
+          v-model="prod.vDescription"
+          id="description"
+        ></textarea>
       </div>
       <div class="admin_container_data">
         <h5>Категория:</h5>
         <fieldset>
-          <div>
+          <div class="listCategor">
             <div>
               <input
                 type="radio"
                 name="preference"
-                id="front"
-                value="frontend"
+                v-model="prod.vCategory"
+                id="category"
+                value="Пиджак"
                 checked
               >
               <label>
-                Категория
+                Пиджак
               </label>
             </div>
             <div>
               <input
                 type="radio"
                 name="preference"
-                id="front"
-                value="frontend"
+                v-model="prod.vCategory"
+                id="category"
+                value="Блузка"
               >
               <label>
-                Категория
+                Блузка
               </label>
             </div>
             <div>
               <input
                 type="radio"
                 name="preference"
-                id="front"
-                value="frontend"
+                v-model="prod.vCategory"
+                id="category"
+                value="Брюки"
               >
               <label>
-                Категория
+                Брюки
               </label>
             </div>
             <div>
               <input
                 type="radio"
                 name="preference"
-                id="back"
-                value="backend"
+                v-model="prod.vCategory"
+                id="category"
+                value="Готовый образ"
               >
               <label>
-                Категория
+                Готовый образ
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="preference"
+                v-model="prod.vCategory"
+                id="category"
+                value="Платье"
+              >
+              <label>
+                Платье
               </label>
             </div>
           </div>
@@ -82,11 +101,16 @@
       </div>
       <div class="admin_container_data">
         <h5>Изображение:</h5>
-        <input>
+        <input
+          type="file"
+          ref="file"
+          @change="showFile()"
+          accept="image/*,image/jpeg">
       </div>
     </div>
     <button
       class="admin_addBtn"
+      @click="addProduct"
     >
       Добавить товар
     </button>
@@ -95,7 +119,38 @@
 
 <script>
 export default {
-  name: 'admin'
+  name: 'admin',
+  data() {
+    return {
+      prod: {
+        lastId: 0,
+        vName:'',
+        vPrice: '',
+        vCategory: '',
+        vDescription: '',
+        vImg: '',
+      }
+    }
+  },
+  methods: {
+    showFile() {
+      let file = this.$refs.file.files[0];
+      this.prod.vImg = file.name
+      alert(`Вы добавили файл: ${file.name}`);
+    },
+    addProduct() {
+      let newProduct = {
+        id: this.prod.lastId,
+        name: this.prod.vName,
+        price: this.prod.vPrice,
+        img: this.prod.vImg,
+        descr: this.prod.vDescription,
+        category: this.prod.vCategory
+      }
+      this.prod.lastId++
+      console.log(newProduct)
+    }
+  }
 }
 </script>
 
@@ -144,5 +199,23 @@ export default {
 }
 h2 {
   height: 60px;
+}
+input {
+  width: 69%;
+}
+textarea {
+  min-height: 80px;
+  max-height: 250px;
+  width: 83%;
+}
+#category {
+  width: unset;
+  margin-right: 10px;
+}
+.listCategor {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
 }
 </style>
