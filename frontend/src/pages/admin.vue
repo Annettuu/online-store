@@ -107,6 +107,7 @@
           @change="showFile()"
           accept="image/*,image/jpeg">
       </div>
+      <img src="" id="image" style="max-width: 100px; display: none;"/>
     </div>
     <button
       class="admin_addBtn"
@@ -122,10 +123,11 @@ export default {
   name: 'admin',
   data() {
     return {
+      newProduct: {},
       prod: {
-        lastId: 0,
+        lastId: 1,
         vName:'',
-        vPrice: '',
+        vPrice: 0,
         vCategory: '',
         vDescription: '',
         vImg: '',
@@ -134,21 +136,45 @@ export default {
   },
   methods: {
     showFile() {
-      let file = this.$refs.file.files[0];
-      this.prod.vImg = file.name
-      alert(`Вы добавили файл: ${file.name}`);
+      let image = document.getElementById("image");
+      image.src = URL.createObjectURL(this.$refs.file.files[0]);
+      image.style.display = "block";
+      this.prod.vImg = image.src;
     },
     addProduct() {
-      let newProduct = {
-        id: this.prod.lastId,
-        name: this.prod.vName,
-        price: this.prod.vPrice,
-        img: this.prod.vImg,
-        descr: this.prod.vDescription,
-        category: this.prod.vCategory
+      if (this.prod.vName !== '' && this.prod.vPrice !== '' && this.prod.vCategory !== '' &&
+        this.prod.vDescription !== '' && this.prod.vImg !== '') {
+          this.newProduct = {
+            id: this.prod.lastId,
+            name: this.prod.vName,
+            price: Number(this.prod.vPrice),
+            img: this.prod.vImg,
+            descr: this.prod.vDescription,
+            category: this.prod.vCategory
+          }
+        this.prod.lastId++
+        let item = this.newProduct
+        console.log(JSON.stringify(item))
+        localStorage.setItem('newProduct', JSON.stringify(item));
+        localStorage.setItem('lastId', JSON.stringify(this.prod.lastId));
+        this.prod.vName = ''
+        this.prod.vPrice = ''
+        this.prod.vCategory = ''
+        this.prod.vDescription = ''
+        this.prod.vImg = ''
+        let image = document.getElementById("image");
+        image.style.display = "none";
+      } else {
+        console.log('Вы ввели не все данные!')
       }
-      this.prod.lastId++
-      console.log(newProduct)
+    }
+  },
+  mounted() {
+    if (localStorage.getItem('newProduct')) {
+      this.newProduct = localStorage.getItem('newProduct');
+    }
+    if (localStorage.getItem('lastId')) {
+      this.prod.lastId = localStorage.getItem('lastId');
     }
   }
 }
