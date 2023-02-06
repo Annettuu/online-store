@@ -52,7 +52,7 @@ export default {
     function onDragging(ev, item){
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
-    const products = [
+    let products = [
       {id:1, price: 5000, name: 'Товар', img: 'img_2.png'},
       {id:2, price: 5000, name: 'Товар', img: 'img_2.png'},
       {id:3, price: 5000, name: 'Товар', img: 'img_2.png'},

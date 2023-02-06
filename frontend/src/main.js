@@ -11,7 +11,6 @@ import  '@/assets/styles/scss/main-color.scss'
 
 Vue.use(VueRouter)
 
-
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 

@@ -53,7 +53,7 @@ export default {
     function onDragging(ev, item){
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
-    const products = [
+    let products = [
       {id:1, price: 5000, name: 'Товар', img: 'img_2.png'},
       {id:2, price: 5000, name: 'Товар', img: 'img_2.png'},
       {id:3, price: 5000, name: 'Товар', img: 'img_2.png'},
@@ -63,8 +63,7 @@ export default {
       {id:7, price: 5000, name: 'Товар', img: 'img_2.png'},
       {id:8, price: 5000, name: 'Товар', img: 'img_2.png'},
       {id:9, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:10, price: 5000, name: 'Товар', img: 'img_2.png'}
-    ]
+  ]
     function scroll(direction) {
       const swiper = document.querySelector('.mySwiper').swiper
 
@@ -74,11 +73,10 @@ export default {
         swiper.slidePrev()
       }
     }
-
     return {
-      modules: [Scrollbar, Navigation, Pagination, A11y], products,  Swiper, SwiperSlide, onDragging, scroll
+      modules: [Scrollbar, Navigation, Pagination, A11y], products,  Swiper, SwiperSlide, onDragging, scroll,
     }
-  }
+  },
 }
 </script>
 
