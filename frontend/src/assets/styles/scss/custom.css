@@ -3,7 +3,7 @@
 }
 
 h2 {
-  color: white;
+  color: rgb(40, 33, 33);
   font-family: "Dancing Script", cursive;
 }
 
@@ -33,7 +33,7 @@ h2 {
 }
 
 .card-text {
-  color: rgb(61, 50, 50);
+  color: rgb(40, 33, 33);
 }
 
 .card {

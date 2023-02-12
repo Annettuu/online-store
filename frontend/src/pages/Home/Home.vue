@@ -35,8 +35,8 @@ export default {
 @import '@/assets/styles/scss/custom.css';
 @import '@/assets/styles/scss/main-color.scss';
 
+
 .home {
-  background: $green;
   display: flex;
   flex-direction: column;
   width: 100%;

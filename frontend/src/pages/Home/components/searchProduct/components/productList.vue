@@ -54,15 +54,16 @@ export default {
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
     let products = [
-      {id:1, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:2, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:3, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:4, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:5, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:6, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:7, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:8, price: 5000, name: 'Товар', img: 'img_2.png'},
-      {id:9, price: 5000, name: 'Товар', img: 'img_2.png'},
+      {id:7, price: 5000, name: 'Товар', img: 'product_number_9.jpg'},
+      {id:8, price: 5000, name: 'Товар', img: 'product_number_10.jpg'},
+      {id:9, price: 5000, name: 'Товар', img: 'product_number_11.jpg'},
+      {id:10, price: 5000, name: 'Товар', img: 'product_number_12.jpg'},
+      {id:11, price: 5000, name: 'Товар', img: 'product_number_13.jpg'},
+      {id:1, price: 5000, name: 'Товар', img: 'product_number_9.jpg'},
+      {id:2, price: 5000, name: 'Товар', img: 'product_number_10.jpg'},
+      {id:3, price: 5000, name: 'Товар', img: 'product_number_11.jpg'},
+      {id:4, price: 5000, name: 'Товар', img: 'product_number_12.jpg'},
+      {id:5, price: 5000, name: 'Товар', img: 'product_number_13.jpg'},
   ]
     function scroll(direction) {
       const swiper = document.querySelector('.mySwiper').swiper
@@ -93,6 +94,9 @@ export default {
   width: 100%;
   height: 100%;
 }
+.swiper-wrapper {
+  margin-left: 12px !important;
+}
 .swiper-slide {
   display: flex;
 
@@ -112,12 +116,19 @@ export default {
   z-index: 5;
 }
 
-.swiper-button-next:after {
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 30px;
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  right: 35px;
-}
-.swiper-button-prev:after {
-  position: absolute;
-  right: 25px;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 26px;
 }
 </style>

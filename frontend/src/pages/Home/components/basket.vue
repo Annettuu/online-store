@@ -103,8 +103,8 @@ h6 {
   width: 10%;
 }
 .basket-cardProduct-img {
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 175px;
 }
 .basket-drop {
   display: flex;
@@ -113,7 +113,7 @@ h6 {
   justify-content: center;
   gap: 10px 10px;
   width: 100%;
-  height: 700px;
+  height: 600px;
   overflow-y: scroll;
   padding: 10px;
   border: 1px solid #aaaaaa;

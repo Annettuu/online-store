@@ -30,11 +30,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/scss/main-color.scss';
+
 .CardProduct {
   display: flex;
   justify-content: center;
-  width: 250px;
-  height: 250px;
+  width: 265px;
+  height: 420px;
 }
 .hover-text-one {
   overflow: hidden;
@@ -58,7 +60,7 @@ export default {
 }
 .hover-text-one figure figcaption {
   padding: 2em;
-  color: #fff;
+  color: $black;
   text-transform: uppercase;
   font-size: 1.25em;
   -webkit-backface-visibility: hidden;
@@ -93,9 +95,6 @@ export default {
 }
 
 /* Эффект при наведении */
-figure.effect-text-three {
-  background: #527c82;
-}
 figure.effect-text-three img {
   width: -webkit-calc(100% + 20px);
   width: calc(100% + 20px);
@@ -124,7 +123,7 @@ figure.effect-text-three h3::after {
   left: 0;
   width: 100%;
   height: 3px;
-  background: #fff;
+  background: $green;
   content: '';
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;

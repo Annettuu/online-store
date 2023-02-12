@@ -5,7 +5,7 @@
         class="navbar-brand"
         href="#"
       >
-        Логотип магазина
+        <img src="@/assets/images/OnlineShop_free-file.png">
       </a>
     </nav>
   </div>
