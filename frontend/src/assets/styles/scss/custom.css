@@ -2,9 +2,9 @@
   gap: 15px;
 }
 
-h2 {
-  color: white;
-  font-family: "Dancing Script", cursive;
+h2, h5, h3, p, h6 {
+  color: rgb(40, 33, 33);
+  font-family: cursive;
 }
 
 .carousel-control-prev:hover, .carousel-control-prev, .carousel-control-prev:focus, .carousel-control-next, .carousel-control-next:hover, .carousel-control-next:focus {
@@ -33,7 +33,7 @@ h2 {
 }
 
 .card-text {
-  color: rgb(61, 50, 50);
+  color: rgb(40, 33, 33);
 }
 
 .card {

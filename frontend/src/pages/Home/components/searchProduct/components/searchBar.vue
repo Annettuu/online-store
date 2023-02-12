@@ -192,13 +192,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/scss/main-color.scss';
+
 .searchBar {
   display: flex;
-  width: 80%;
-  margin-top: 50px;
-  margin-bottom: -30px;
+  width: 100%;
+  margin-top: -20px;
+  margin-bottom: 25px;
+  justify-content: center;
 }
 .d-flex {
   gap: 5px;
+}
+h5 {
+  color: $black;
 }
 </style>

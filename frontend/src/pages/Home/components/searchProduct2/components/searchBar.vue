@@ -194,7 +194,7 @@ export default {
 <style lang="scss">
 .searchBar {
   display: flex;
-  width: 80%;
+  width: 100%;
   margin-top: 50px;
   margin-bottom: -30px;
 }

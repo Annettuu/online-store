@@ -3,9 +3,9 @@
 .card-group {
   gap: 15px;
 }
-h2 {
-  color: white;
-  font-family: 'Dancing Script', cursive;
+h2, h5, h3, p, h6 {
+  color: $black;
+  font-family: cursive;
 }
 .carousel-control-prev:hover,.carousel-control-prev, .carousel-control-prev:focus, .carousel-control-next, .carousel-control-next:hover, .carousel-control-next:focus {
   color: transparent;

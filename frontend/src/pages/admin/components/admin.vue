@@ -190,6 +190,7 @@ export default {
   align-items: center;
   width: 100%;
   height: 100%;
+  padding: 80px;
 
   &_container {
     display: flex;
@@ -200,26 +201,26 @@ export default {
       display: flex;
       align-items: center;
       gap: 10px;
-      border-bottom: 2px solid $white;
-      padding: 5px 10px;
+      border-bottom: 2px solid $green;
+      padding: 13px 10px;
 
       &._top {
-        border-top: 2px solid $white;
+        border-top: 2px solid $green;
       }
     }
   }
   &_addBtn {
-    margin-top: 20px;
+    margin-top: 40px;
     background: transparent;
-    color: $white;
+    color: $black;
     font-size: 20px;
-    border: 2px solid $white;
+    border: 2px solid $black;
     border-radius: 20px;
-    padding: 10px;
+    padding: 15px;
 
     &:hover {
-      border: 2px solid white;
-      color: white;
+      border: 2px solid $green;
+      color: $green$green;
     }
   }
 }
@@ -228,6 +229,10 @@ h2 {
 }
 input {
   width: 69%;
+  color: $black;
+}
+label {
+  color: $black;
 }
 textarea {
   min-height: 80px;
