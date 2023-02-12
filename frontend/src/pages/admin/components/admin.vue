@@ -201,11 +201,11 @@ export default {
       display: flex;
       align-items: center;
       gap: 10px;
-      border-bottom: 2px solid $black;
-      padding: 10px 10px;
+      border-bottom: 2px solid $green;
+      padding: 13px 10px;
 
       &._top {
-        border-top: 2px solid $black;
+        border-top: 2px solid $green;
       }
     }
   }
@@ -219,17 +219,17 @@ export default {
     padding: 15px;
 
     &:hover {
-      border: 2px solid $black;
-      color: $black;
+      border: 2px solid $green;
+      color: $green$green;
     }
   }
 }
 h2 {
   height: 60px;
-  color: $black;
 }
 input {
   width: 69%;
+  color: $black;
 }
 label {
   color: $black;

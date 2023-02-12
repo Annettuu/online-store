@@ -105,7 +105,7 @@ figure.effect-text-three img {
   backface-visibility: hidden;
 }
 figure.effect-text-three:hover img {
-  opacity: 0.9;
+  opacity: 0.5;
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
