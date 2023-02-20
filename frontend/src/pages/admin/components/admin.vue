@@ -5,31 +5,31 @@
       <div class="admin_container_data _top">
         <h5>Название товара:</h5>
         <input
+          v-model="prod.vName"
           type="text"
           required
-          v-model="prod.vName"
         >
       </div>
       <div class="admin_container_data">
         <h5>Идентификатор:</h5>
-        <h5>{{prod.lastId}}</h5>
+        <h5>{{ prod.lastId }}</h5>
       </div>
       <div class="admin_container_data">
         <h5>Цена:</h5>
         <input
+          v-model="prod.vPrice"
           type="number"
           required
-          v-model="prod.vPrice"
         >
         ₽
       </div>
       <div class="admin_container_data">
         <h5>Описание:</h5>
         <textarea
-          name="description"
-          v-model="prod.vDescription"
           id="description"
-        ></textarea>
+          v-model="prod.vDescription"
+          name="description"
+        />
       </div>
       <div class="admin_container_data">
         <h5>Категория:</h5>
@@ -37,10 +37,10 @@
           <div class="listCategor">
             <div>
               <input
+                id="category"
+                v-model="prod.vCategory"
                 type="radio"
                 name="preference"
-                v-model="prod.vCategory"
-                id="category"
                 value="Пиджак"
                 checked
               >
@@ -50,10 +50,10 @@
             </div>
             <div>
               <input
+                id="category"
+                v-model="prod.vCategory"
                 type="radio"
                 name="preference"
-                v-model="prod.vCategory"
-                id="category"
                 value="Блузка"
               >
               <label>
@@ -62,10 +62,10 @@
             </div>
             <div>
               <input
+                id="category"
+                v-model="prod.vCategory"
                 type="radio"
                 name="preference"
-                v-model="prod.vCategory"
-                id="category"
                 value="Брюки"
               >
               <label>
@@ -74,10 +74,10 @@
             </div>
             <div>
               <input
+                id="category"
+                v-model="prod.vCategory"
                 type="radio"
                 name="preference"
-                v-model="prod.vCategory"
-                id="category"
                 value="Готовый образ"
               >
               <label>
@@ -86,10 +86,10 @@
             </div>
             <div>
               <input
+                id="category"
+                v-model="prod.vCategory"
                 type="radio"
                 name="preference"
-                v-model="prod.vCategory"
-                id="category"
                 value="Платье"
               >
               <label>
@@ -102,12 +102,16 @@
       <div class="admin_container_data">
         <h5>Изображение:</h5>
         <input
-          type="file"
           ref="file"
+          type="file"
+          accept="image/*,image/jpeg"
           @change="showFile()"
-          accept="image/*,image/jpeg">
+        >
       </div>
-      <img src="" id="image" style="max-width: 100px; display: none;"/>
+      <img
+        id="image"
+        src=""
+      >
     </div>
     <button
       class="admin_addBtn"
@@ -130,51 +134,51 @@ export default {
         vPrice: 0,
         vCategory: '',
         vDescription: '',
-        vImg: '',
-      }
-    }
-  },
-  methods: {
-    showFile() {
-      let image = document.getElementById("image");
-      image.src = URL.createObjectURL(this.$refs.file.files[0]);
-      image.style.display = "block";
-      this.prod.vImg = image.src;
-    },
-    addProduct() {
-      if (this.prod.vName !== '' && this.prod.vPrice !== '' && this.prod.vCategory !== '' &&
-        this.prod.vDescription !== '' && this.prod.vImg !== '') {
-          this.newProduct = {
-            id: this.prod.lastId,
-            name: this.prod.vName,
-            price: Number(this.prod.vPrice),
-            img: this.prod.vImg,
-            descr: this.prod.vDescription,
-            category: this.prod.vCategory
-          }
-        this.prod.lastId++
-        let item = this.newProduct
-        console.log(JSON.stringify(item))
-        localStorage.setItem('newProduct', JSON.stringify(item));
-        localStorage.setItem('lastId', JSON.stringify(this.prod.lastId));
-        this.prod.vName = ''
-        this.prod.vPrice = ''
-        this.prod.vCategory = ''
-        this.prod.vDescription = ''
-        this.prod.vImg = ''
-        let image = document.getElementById("image");
-        image.style.display = "none";
-      } else {
-        console.log('Вы ввели не все данные!')
+        vImg: ''
       }
     }
   },
   mounted() {
     if (localStorage.getItem('newProduct')) {
-      this.newProduct = localStorage.getItem('newProduct');
+      this.newProduct = localStorage.getItem('newProduct')
     }
     if (localStorage.getItem('lastId')) {
-      this.prod.lastId = localStorage.getItem('lastId');
+      this.prod.lastId = localStorage.getItem('lastId')
+    }
+  },
+  methods: {
+    showFile() {
+      let image = document.getElementById('image')
+      image.src = URL.createObjectURL(this.$refs.file.files[0])
+      image.style.display = 'block'
+      this.prod.vImg = image.src
+    },
+    addProduct() {
+      if (this.prod.vName !== '' && this.prod.vPrice !== '' && this.prod.vCategory !== '' &&
+        this.prod.vDescription !== '' && this.prod.vImg !== '') {
+        this.newProduct = {
+          id: this.prod.lastId,
+          name: this.prod.vName,
+          price: Number(this.prod.vPrice),
+          img: this.prod.vImg,
+          descr: this.prod.vDescription,
+          category: this.prod.vCategory
+        }
+        this.prod.lastId++
+        let item = this.newProduct
+        console.log(item)
+        localStorage.setItem('newProduct', JSON.stringify(item))
+        localStorage.setItem('lastId', JSON.stringify(this.prod.lastId))
+        this.prod.vName = ''
+        this.prod.vPrice = ''
+        this.prod.vCategory = ''
+        this.prod.vDescription = ''
+        this.prod.vImg = ''
+        let image = document.getElementById('image')
+        image.style.display = 'none'
+      } else {
+        console.debug('Вы ввели не все данные!')
+      }
     }
   }
 }

@@ -1,16 +1,16 @@
 <template>
   <div class="purchase-processing-page">
-    <header-purchase-processing/>
-    <purchaseProcessing/>
+    <header-purchase-processing />
+    <purchase-processing />
   </div>
 </template>
 
 <script>
-import purchaseProcessing from "@/pages/purchase-processing/components/purchaseProcessing";
-import headerPurchaseProcessing from "@/pages/purchase-processing/components/header-purchaseProcessing";
+import purchaseProcessing from '@/pages/purchase-processing/components/purchaseProcessing'
+import headerPurchaseProcessing from '@/pages/purchase-processing/components/header-purchaseProcessing'
 
 export default {
-  name: "purchaseProcessingPage",
+  name: 'purchase-processing-page',
   components: {
     purchaseProcessing,
     headerPurchaseProcessing

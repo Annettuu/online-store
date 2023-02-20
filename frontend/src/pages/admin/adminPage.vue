@@ -1,16 +1,16 @@
 <template>
   <div class="admin-page">
-    <header-admin/>
-    <admin/>
+    <header-admin />
+    <admin />
   </div>
 </template>
 
 <script>
-import admin from "@/pages/admin/components/admin";
-import headerAdmin from "@/pages/admin/components/header-admin";
+import admin from '@/pages/admin/components/admin'
+import headerAdmin from '@/pages/admin/components/header-admin'
 
 export default {
-  name: "adminPage",
+  name: 'admin-page',
   components: {
     admin,
     headerAdmin

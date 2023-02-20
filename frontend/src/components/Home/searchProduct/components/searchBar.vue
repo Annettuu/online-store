@@ -1,13 +1,26 @@
 <template>
   <div class="container searchBar">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+    <form
+      class="d-flex"
+      role="search"
+    >
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Поиск"
+        aria-label="Поиск"
+      >
       <b-button>Поиск</b-button>
-      <b-button v-b-modal.modal-lg @click="show=true">Фильтр</b-button>
+      <b-button
+        v-b-modal.modal-lg
+        @click="show=true"
+      >
+        Фильтр
+      </b-button>
     </form>
     <b-modal
-      v-model="show"
       id="modal-lg"
+      v-model="show"
       size="lg"
       title="Modal Variants"
       :header-bg-variant="headerBgVariant"
@@ -16,26 +29,50 @@
     >
       <b-container fluid>
         <b-row class="mb-1 text-center">
-          <b-col cols="5"></b-col>
+          <b-col cols="5" />
         </b-row>
         <b-row class="mb-1">
-          <b-col cols="5">Категория</b-col>
+          <b-col cols="5">
+            Категория
+          </b-col>
           <b-col>
-            <b-form-group label="Tagged input using dropdown" label-for="tags-with-dropdown">
-              <b-form-tags id="tags-with-dropdown" v-model="value" no-outer-focus class="mb-2">
-                <template v-slot="{ tags, disabled, addTag, removeTag }">
-                  <ul v-if="tags.length > 0" class="list-inline d-inline-block mb-2">
-                    <li v-for="tag in tags" :key="tag" class="list-inline-item">
+            <b-form-group
+              label="Tagged input using dropdown"
+              label-for="tags-with-dropdown"
+            >
+              <b-form-tags
+                id="tags-with-dropdown"
+                v-model="value"
+                no-outer-focus
+                class="mb-2"
+              >
+                <template #default="{ tags, disabled, addTag, removeTag }">
+                  <ul
+                    v-if="tags.length > 0"
+                    class="list-inline d-inline-block mb-2"
+                  >
+                    <li
+                      v-for="tag in tags"
+                      :key="tag"
+                      class="list-inline-item"
+                    >
                       <b-form-tag
-                        @remove="removeTag(tag)"
                         :title="tag"
                         :disabled="disabled"
                         variant="info"
-                      >{{ tag }}</b-form-tag>
+                        @remove="removeTag(tag)"
+                      >
+                        {{ tag }}
+                      </b-form-tag>
                     </li>
                   </ul>
 
-                  <b-dropdown size="sm" variant="outline-secondary" block menu-class="w-100">
+                  <b-dropdown
+                    size="sm"
+                    variant="outline-secondary"
+                    block
+                    menu-class="w-100"
+                  >
                     <template #button-content>
                       Choose tags
                     </template>
@@ -50,15 +87,15 @@
                         :disabled="disabled"
                       >
                         <b-form-input
-                          v-model="search"
                           id="tag-search-input"
+                          v-model="search"
                           type="search"
                           size="sm"
                           autocomplete="off"
-                        ></b-form-input>
+                        />
                       </b-form-group>
                     </b-dropdown-form>
-                    <b-dropdown-divider></b-dropdown-divider>
+                    <b-dropdown-divider />
                     <b-dropdown-item-button
                       v-for="option in availableOptions"
                       :key="option"
@@ -76,19 +113,38 @@
           </b-col>
         </b-row>
         <b-row class="mb-1">
-          <b-col cols="5">Цвет</b-col>
+          <b-col cols="5">
+            Цвет
+          </b-col>
           <b-col>
             <b-form-group>
-              <b-form-tags v-model="value" no-outer-focus>
-                <template v-slot="{ tags, addTag, removeTag }">
-                  <ul v-if="tags.length > 0" class="d-inline-block mb-2">
-                    <li v-for="tag in tags" :key="tag" class="list-inline-item">
+              <b-form-tags
+                v-model="value"
+                no-outer-focus
+              >
+                <template #default="{ tags, addTag, removeTag }">
+                  <ul
+                    v-if="tags.length > 0"
+                    class="d-inline-block mb-2"
+                  >
+                    <li
+                      v-for="tag in tags"
+                      :key="tag"
+                      class="list-inline-item"
+                    >
                       <b-form-tag
                         @remove="removeTag(tag)"
-                      >{{ tag }}</b-form-tag>
+                      >
+                        {{ tag }}
+                      </b-form-tag>
                     </li>
                   </ul>
-                  <b-dropdown size="sm" variant="outline-secondary" block menu-class="w-100">
+                  <b-dropdown
+                    size="sm"
+                    variant="outline-secondary"
+                    block
+                    menu-class="w-100"
+                  >
                     <template #button-content>
                       Выберите тег
                     </template>
@@ -103,12 +159,12 @@
                         :disabled="disabled"
                       >
                         <b-form-input
-                          v-model="search"
                           id="tag-search-input"
+                          v-model="search"
                           type="search"
                           size="sm"
                           autocomplete="off"
-                        ></b-form-input>
+                        />
                       </b-form-group>
                     </b-dropdown-form>
                     <b-dropdown-item-button
@@ -128,15 +184,25 @@
           </b-col>
         </b-row>
         <b-row>
-          <b-col cols="5">Цена</b-col>
+          <b-col cols="5">
+            Цена
+          </b-col>
           <b-col>
             <div class="input-group mb-3">
               <span class="input-group-text">min</span>
               <span class="input-group-text">₽</span>
-              <input type="text" class="form-control" aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              >
             </div>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)">
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Сумма в рублях (с точкой и двумя десятичными знаками)"
+              >
               <span class="input-group-text">max</span>
               <span class="input-group-text">₽</span>
             </div>
@@ -149,7 +215,7 @@
 
 <script>
 export default {
-  name: "searchBar",
+  name: 'search-bar',
   data() {
     return {
       show: false,
@@ -173,8 +239,9 @@ export default {
       const options = this.options.filter(opt => this.value.indexOf(opt) === -1)
       if (criteria) {
         // Show only options that match criteria
-        return options.filter(opt => opt.toLowerCase().indexOf(criteria) > -1);
+        return options.filter(opt => opt.toLowerCase().indexOf(criteria) > -1)
       }
+
       // Show all options available
       return options
     },
@@ -182,6 +249,7 @@ export default {
       if (this.criteria && this.availableOptions.length === 0) {
         return 'There are no tags matching your search criteria'
       }
+
       return ''
     }
   },

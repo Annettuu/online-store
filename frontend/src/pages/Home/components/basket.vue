@@ -10,11 +10,12 @@
         v-for="productBasket of basket"
         :key="productBasket.id"
         class="basket-cardProduct"
+        @mouseover="mouseover"
       >
         <img
           class="basket-cardProduct-img"
           :src="require(`@/assets/images/${productBasket.img}`)"
-          @mouseover="mouseover"
+          :class="{ active: activeId === productBasket.id}"
         >
       </div>
       <div class="basket-cardProduct-panelDescription">
@@ -22,11 +23,38 @@
           v-for="productBasket of basket"
           :key="productBasket.id"
           class="basket-cardProduct-description"
+          @mouseover="activeId = productBasket.id"
+          :class="{ active: activeId === productBasket.id}"
         >
-          <h6>{{ productBasket.name }} - {{ productBasket.price }}$</h6>
+          <h6>
+            {{ productBasket.name }} - {{ productBasket.price }}
+          </h6>
+          <button
+            class="basket-cardProduct-btn"
+            @click="addProd"
+          >
+            <img
+              class="basket-cardProduct-btn-img"
+              src="@/assets/svg/addProd.svg"
+            >
+          </button>
+          <button
+            class="basket-cardProduct-btn"
+            @click="removeProd(productBasket.id)"
+          >
+            <img
+              class="basket-cardProduct-btn-img"
+              src="@/assets/svg/remove.svg"
+            >
+          </button>
         </div>
       </div>
     </div>
+    <h5
+      class="sum"
+    >
+      Итого: {{ sum }} ₽
+    </h5>
   </div>
 </template>
 
@@ -35,10 +63,15 @@ export default {
   name: 'basket',
   data() {
     return {
-      basket: []
+      basket: [],
+      sum: 0,
+      activeId: -1
     }
   },
   methods: {
+    sumTo(price) {
+      this.sum = this.sum + price
+    },
     allowDrop(ev) {
       ev.preventDefault()
     },
@@ -46,14 +79,24 @@ export default {
       ev.preventDefault()
       let data = JSON.parse(ev.dataTransfer.getData('data'))
       this.basket.push(data)
+      this.sumTo(data.price)
     },
     mouseover() {
       let changeDisp = document.querySelector('.basket-cardProduct-panelDescription')
-      changeDisp.style.display = changeDisp.style.display = 'flex'
+      changeDisp.style.display = 'flex'
     },
     mouseleave() {
       let change = document.querySelector('.basket-cardProduct-panelDescription')
-      change.style.display = change.style.display = 'none'
+      change.style.display = 'none'
+    },
+    highlight(bool) {
+      this.isActive = bool;
+    },
+    addProd() {
+
+    },
+    removeProd() {
+
     }
   }
 }
@@ -79,8 +122,8 @@ export default {
   position: absolute;
   overflow: hidden;
   overflow-y: scroll;
-  bottom: 0px;
-  max-height: 80px;
+  bottom: 55px;
+  max-height: 105px;
   z-index: 10;
 }
 h6 {
@@ -89,9 +132,10 @@ h6 {
 .basket-cardProduct-description {
   display: flex;
   justify-content: center;
-  align-items: center;
   background: $white;
   width: 100%;
+  border: 1px solid $black;
+  align-items: center;
 }
 .basket-cardProduct-panelTotalPrice {
   display: flex;
@@ -101,6 +145,15 @@ h6 {
   bottom: 0px;
   right: 0px;
   width: 10%;
+}
+.basket-cardProduct-btn {
+  background: transparent;
+  border: none;
+  margin-bottom: 5px;
+}
+.basket-cardProduct-btn-img {
+  width: 15px;
+  height: 15px;
 }
 .basket-cardProduct-img {
   width: 125px;
@@ -119,6 +172,10 @@ h6 {
   border: 1px solid #aaaaaa;
   flex-wrap: wrap;
 }
+.sum {
+  margin-top: 21px;
+  border-bottom: 1px solid black;
+}
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
@@ -133,5 +190,8 @@ h6 {
 }
 *::-webkit-scrollbar-thumb {
   background: $grey;
+}
+.active {
+  filter: brightness(70%);
 }
 </style>

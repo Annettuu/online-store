@@ -1,12 +1,14 @@
 <template>
   <div class="header-purchaseProcessing">
-    <router-link :to="{ name: 'home'}"><h5>На главную</h5></router-link>
+    <router-link :to="{ name: 'home'}">
+      <h5>На главную</h5>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: "header-purchaseProcessing"
+  name: 'header-purchase-processing'
 }
 </script>
 

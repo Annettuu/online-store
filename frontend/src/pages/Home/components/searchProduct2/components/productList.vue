@@ -62,7 +62,7 @@ export default {
       {id:2, price: 5000, name: 'Товар', img: 'product_number_10.jpg'},
       {id:3, price: 5000, name: 'Товар', img: 'product_number_11.jpg'},
       {id:4, price: 5000, name: 'Товар', img: 'product_number_12.jpg'},
-      {id:5, price: 5000, name: 'Товар', img: 'product_number_13.jpg'},
+      {id:5, price: 5000, name: 'Товар', img: 'product_number_13.jpg'}
     ]
     function scroll(direction) {
       const swiper = document.querySelector('.mySwiper2').swiper

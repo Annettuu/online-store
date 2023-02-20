@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import card from "@/store/card";
+import card from '@/store/card'
 
 Vue.use(Vuex)
 
