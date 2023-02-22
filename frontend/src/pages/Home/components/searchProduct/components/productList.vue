@@ -17,6 +17,7 @@
           <card-product
             :card-product="product"
             @drag="onDragging($event, product)"
+            @drop="delCounts(product)"
           />
         </swiper-slide>
       </template>
@@ -40,6 +41,7 @@ import cardProduct from '@/components/CardProduct'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/scss'
 import 'swiper/css/navigation'
+import { eventBus } from '@/main.js'
 
 
 export default {
@@ -49,21 +51,33 @@ export default {
     SwiperSlide,
     cardProduct
   },
+  created() {
+    eventBus.$on("data", data => {
+      data.quantity -= 1
+      console.log(data)
+      //this.products = this.products.filter(n => n.id !== data.id);
+      this.products.push(data)
+      console.log(this.products)
+    })
+  },
   setup() {
+    function delCounts(item) {
+      console.log(item)
+    }
     function onDragging(ev, item){
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
     let products = [
-      {id:7, price: 5000, name: 'Товар', img: 'product_number_9.jpg'},
-      {id:8, price: 5000, name: 'Товар', img: 'product_number_10.jpg'},
-      {id:9, price: 5000, name: 'Товар', img: 'product_number_11.jpg'},
-      {id:10, price: 5000, name: 'Товар', img: 'product_number_12.jpg'},
-      {id:11, price: 5000, name: 'Товар', img: 'product_number_13.jpg'},
-      {id:1, price: 5000, name: 'Товар', img: 'product_number_9.jpg'},
-      {id:2, price: 5000, name: 'Товар', img: 'product_number_10.jpg'},
-      {id:3, price: 5000, name: 'Товар', img: 'product_number_11.jpg'},
-      {id:4, price: 5000, name: 'Товар', img: 'product_number_12.jpg'},
-      {id:5, price: 5000, name: 'Товар', img: 'product_number_13.jpg'}
+      {id:7, price: 5000, name: 'Товар', quantity: 2, img: 'product_number_9.jpg'},
+      {id:8, price: 5000, name: 'Товар', quantity: 2, img: 'product_number_10.jpg'},
+      {id:9, price: 5000, name: 'Товар', quantity: 3, img: 'product_number_11.jpg'},
+      {id:10, price: 5000, name: 'Товар', quantity: 5, img: 'product_number_12.jpg'},
+      {id:11, price: 5000, name: 'Товар', quantity: 1, img: 'product_number_13.jpg'},
+      {id:1, price: 5000, name: 'Товар', quantity: 4, img: 'product_number_9.jpg'},
+      {id:2, price: 5000, name: 'Товар', quantity: 2, img: 'product_number_10.jpg'},
+      {id:3, price: 5000, name: 'Товар', quantity: 6, img: 'product_number_11.jpg'},
+      {id:4, price: 5000, name: 'Товар', quantity: 0, img: 'product_number_12.jpg'},
+      {id:5, price: 5000, name: 'Товар', quantity: 3, img: 'product_number_13.jpg'}
     ]
     function scroll(direction) {
       const swiper = document.querySelector('.mySwiper').swiper
@@ -76,7 +90,7 @@ export default {
     }
 
     return {
-      modules: [Scrollbar, Navigation, Pagination, A11y], products,  Swiper, SwiperSlide, onDragging, scroll
+      modules: [Scrollbar, Navigation, Pagination, A11y], products,  Swiper, SwiperSlide, onDragging, scroll, delCounts
     }
   }
 }

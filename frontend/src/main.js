@@ -15,7 +15,10 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 
+export const eventBus = new Vue();
+
 new Vue({
+  eventBus,
   router,
   store,
   render: h => h(App)

@@ -10,6 +10,7 @@
         <figcaption>
           <h3>{{ cardProduct.price }}$</h3>
           <p>{{ cardProduct.name }}</p>
+          <p>{{cardProduct.quantity}}</p>
         </figcaption>
       </figure>
     </div>

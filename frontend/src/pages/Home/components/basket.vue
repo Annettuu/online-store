@@ -27,7 +27,7 @@
           :class="{ active: activeId === productBasket.id}"
         >
           <h6>
-            {{ productBasket.name }} - {{ productBasket.price }}
+            {{ productBasket.quantity }}шт. {{ productBasket.name }} - {{ productBasket.price }}
           </h6>
           <button
             class="basket-cardProduct-btn"
@@ -59,27 +59,38 @@
 </template>
 
 <script>
+import { eventBus } from '@/main.js';
+
 export default {
   name: 'basket',
   data() {
     return {
       basket: [],
       sum: 0,
-      activeId: -1
+      activeId: 0
     }
   },
   methods: {
     sumTo(price) {
-      this.sum = this.sum + price
+      this.sum += price
     },
     allowDrop(ev) {
       ev.preventDefault()
     },
     drop(ev) {
       ev.preventDefault()
+      ev.dataTransfer.dropEffect = 'move'
+      ev.dataTransfer.effectAllowed = 'move'
       let data = JSON.parse(ev.dataTransfer.getData('data'))
-      this.basket.push(data)
+      let presence = this.basket.some(item => data.id === item.id)
       this.sumTo(data.price)
+
+      if(presence === false) {
+        eventBus.$emit("data", data)
+        this.basket.push(data)
+      } else {
+
+      }
     },
     mouseover() {
       let changeDisp = document.querySelector('.basket-cardProduct-panelDescription')
@@ -87,10 +98,7 @@ export default {
     },
     mouseleave() {
       let change = document.querySelector('.basket-cardProduct-panelDescription')
-      change.style.display = 'none'
-    },
-    highlight(bool) {
-      this.isActive = bool;
+      change.style.display = ''
     },
     addProd() {
 

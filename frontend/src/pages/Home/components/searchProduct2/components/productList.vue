@@ -53,16 +53,16 @@ export default {
       ev.dataTransfer.setData('data', JSON.stringify(item))
     }
     let products = [
-      {id:7, price: 5000, name: 'Товар', img: 'product_number_9.jpg'},
-      {id:8, price: 5000, name: 'Товар', img: 'product_number_10.jpg'},
-      {id:9, price: 5000, name: 'Товар', img: 'product_number_11.jpg'},
-      {id:10, price: 5000, name: 'Товар', img: 'product_number_12.jpg'},
-      {id:11, price: 5000, name: 'Товар', img: 'product_number_13.jpg'},
-      {id:1, price: 5000, name: 'Товар', img: 'product_number_9.jpg'},
-      {id:2, price: 5000, name: 'Товар', img: 'product_number_10.jpg'},
-      {id:3, price: 5000, name: 'Товар', img: 'product_number_11.jpg'},
-      {id:4, price: 5000, name: 'Товар', img: 'product_number_12.jpg'},
-      {id:5, price: 5000, name: 'Товар', img: 'product_number_13.jpg'}
+      {id:7, price: 5000, name: 'Товар', quantity: 2, img: 'product_number_9.jpg'},
+      {id:8, price: 5000, name: 'Товар', quantity: 2, img: 'product_number_10.jpg'},
+      {id:9, price: 5000, name: 'Товар', quantity: 3, img: 'product_number_11.jpg'},
+      {id:10, price: 5000, name: 'Товар', quantity: 5, img: 'product_number_12.jpg'},
+      {id:11, price: 5000, name: 'Товар', quantity: 1, img: 'product_number_13.jpg'},
+      {id:1, price: 5000, name: 'Товар', quantity: 4, img: 'product_number_9.jpg'},
+      {id:2, price: 5000, name: 'Товар', quantity: 2, img: 'product_number_10.jpg'},
+      {id:3, price: 5000, name: 'Товар', quantity: 6, img: 'product_number_11.jpg'},
+      {id:4, price: 5000, name: 'Товар', quantity: 0, img: 'product_number_12.jpg'},
+      {id:5, price: 5000, name: 'Товар', quantity: 3, img: 'product_number_13.jpg'}
     ]
     function scroll(direction) {
       const swiper = document.querySelector('.mySwiper2').swiper
